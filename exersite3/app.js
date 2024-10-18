@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("i: "+i)
                 box.textContent = correctAnswer[i];
             });
-            feedback.textContent = 'Correct! Moving to the next question...';
+            feedback.textContent = 'Câu trả lời đúng rồi chúng ta sẽ chuyển câu hỏi';
             feedback.classList.add('correct');
 
             setTimeout(() => {
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 2000);
         } 
         else {
-            feedback.textContent = `Incorrect! The correct answer was "${correctAnswer}".`;
+            feedback.textContent = `Câu trả lời sai "${correctAnswer}".`;
             feedback.classList.remove('correct');
         }
     };

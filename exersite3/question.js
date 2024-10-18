@@ -19,7 +19,7 @@ const questions = [
     },
     {
         content: 'Thủ đô của Belarus',
-        image: '',
+        image: 'https://www.spottedbylocals.com/wp-content/uploads/2024/06/Minsk-1.jpg',
         correctAnswer: 'Minsk',
         maxShowingCharacter: 2
     }
