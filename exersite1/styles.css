@@ -1,0 +1,119 @@
+body {
+    background: radial-gradient(circle at center, #000000, #550000, #aa0000, #ff0000, #ff5500);
+    background-size: 400% 400%;
+    animation: satanBg 15s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+@keyframes satanBg {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.calculator {
+    background: rgba(20, 0, 0, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px #ff0000, 0 0 60px #550000, 0 0 90px #aa0000;
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 2;
+}
+
+.calculator::before,
+.calculator::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 200px;
+    background: linear-gradient(to top, #aa0000, #550000);
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #aa0000, 0 0 60px #550000;
+    z-index: -1;
+    animation: flame 2s ease-in-out infinite alternate;
+    top: -160px;
+}
+
+.calculator::before {
+    bottom: -130px;
+    left: -100px;
+    transform: rotate(100deg) skewY(-70deg);
+}
+
+.calculator::after {
+    bottom: -130px;
+    right: -100px;
+    transform: rotate(-100deg) skewY(70deg);
+}
+
+@keyframes flame {
+    0% {
+        box-shadow: 0 0 20px #ff5500, 0 0 40px #ff0000, 0 0 80px #aa0000;
+        background: linear-gradient(to top, #ff5500, #ff0000, #550000);
+    }
+
+    50% {
+        box-shadow: 0 0 30px #ff0000, 0 0 60px #aa0000, 0 0 100px #550000;
+        background: linear-gradient(to top, #ff0000, #aa0000, #550000);
+    }
+
+    100% {
+        box-shadow: 0 0 40px #ff0000, 0 0 80px #550000, 0 0 120px #ff5500;
+        background: linear-gradient(to top, #ff5500, #ff0000, #aa0000);
+    }
+}
+
+.calculator-display {
+    width: 94%;
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: rgba(30, 0, 0, 0.7);
+    color: #ff5500;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-buttons button {
+    width: 22%;
+    margin: 1%;
+    height: 50px;
+    border-radius: 10px;
+    background: rgba(50, 0, 0, 0.8);
+    border: 1px solid #aa0000;
+    color: #ff5500;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.calculator-buttons button:hover {
+    background: #aa0000;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #550000, 0 0 30px #ff5500;
+}
+
+.calculator-buttons button:active {
+    background: #ff5500;
+    box-shadow: inset 0 0 5px #000;
+}
