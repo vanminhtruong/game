@@ -1,0 +1,346 @@
+/* General styles */
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #1a0f0f;
+    margin: 0;
+    padding: 0;
+    background-image:
+        linear-gradient(rgba(20, 0, 0, 0.9), rgba(20, 0, 0, 0.9)),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+    animation: backgroundFlicker 3s infinite;
+}
+
+@keyframes backgroundFlicker {
+    0% {
+        background-color: #1a0f0f;
+    }
+
+    50% {
+        background-color: #2a0f0f;
+    }
+
+    100% {
+        background-color: #1a0f0f;
+    }
+}
+
+#container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(30, 0, 0, 0.9);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    border: 1px solid #500;
+    border-radius: 8px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #600;
+    padding-bottom: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    font-family: 'Times New Roman', serif;
+    animation: textGlow 2s infinite;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    }
+
+    100% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+}
+
+#add-btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #8b0000, #a00);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+#add-btn:hover {
+    background: linear-gradient(45deg, #a00, #c00);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: rgba(50, 0, 0, 0.8);
+    border: 1px solid #600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #600, #f00, #600);
+    animation: fireLine 2s infinite;
+}
+
+@keyframes fireLine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+/* Button container styles */
+.button-container {
+    display: flex;
+    gap: 5px;
+    /* Khoảng cách giữa các nút */
+    align-items: center;
+}
+
+button {
+    padding: 8px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng gradient cho nút */
+.edit-btn {
+    background: linear-gradient(45deg, #4a0000, #600);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(45deg, #600, #800);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.edit-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.edit-btn:hover::after {
+    opacity: 1;
+    animation: ripple 1s infinite;
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #8b0000, #a00);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(45deg, #a00, #c00);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.delete-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delete-btn:hover::after {
+    opacity: 1;
+    animation: ripple 1s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Styles */
+#add-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(30, 0, 0, 0.95);
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    border: 1px solid #600;
+    border-radius: 8px;
+    color: #fff;
+}
+
+#add-form h2 {
+    margin-top: 0;
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    animation: textGlow 2s infinite;
+}
+
+#add-form input,
+#add-form textarea {
+    width: 97%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(50, 0, 0, 0.8);
+    border: 1px solid #600;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+#add-form input:focus,
+#add-form textarea:focus {
+    outline: none;
+    border-color: #f00;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+#save-btn {
+    background: linear-gradient(45deg, #8b0000, #a00);
+    color: white;
+}
+
+#save-btn:hover {
+    background: linear-gradient(45deg, #a00, #c00);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+#cancel-btn {
+    background: linear-gradient(45deg, #4a0000, #600);
+    color: white;
+}
+
+#cancel-btn:hover {
+    background: linear-gradient(45deg, #600, #800);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: none;
+}
+
+.blur {
+    filter: blur(3px);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Fire effect */
+@keyframes fire {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 50, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    }
+}
+
+#container::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #600, #f00, #600);
+    animation: fire 2s infinite;
+}
+
+/* Thêm hiệu ứng pulse cho các nút khi hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    animation: pulse 1s infinite;
+}

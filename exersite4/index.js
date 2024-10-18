@@ -25,7 +25,6 @@ const questions = [
     { country: "Kuwait", capital: "Kuwait City" }
 ];
 
-// Generate form content in "paper" format
 document.getElementById('capitalQuizForm').innerHTML = questions.map((q, i) => `
     <div class="question">
         Thủ đô của ${q.country} là 
